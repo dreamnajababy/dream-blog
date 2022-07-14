@@ -4,14 +4,14 @@ import { BlogController } from '@/blog/blog.controller'
 import { BlogService } from '@/blog/blog.service'
 import { Blog } from '@/blog/entities/blog.entity'
 import { BlogRepository } from '@/blog/interfaces/blog.repository'
-import { FakeBlogRepository } from '@/blog/repositories/fake-blog.repository'
+import { PostGresBlogRepository } from '@/blog/repositories/postgres-blog.repository'
 
 @Module({
   imports: [TypeOrmModule.forFeature([Blog])],
   controllers: [BlogController],
   providers: [
     BlogService,
-    { provide: BlogRepository, useClass: FakeBlogRepository },
+    { provide: BlogRepository, useClass: PostGresBlogRepository },
   ],
 })
 export class BlogModule {}
