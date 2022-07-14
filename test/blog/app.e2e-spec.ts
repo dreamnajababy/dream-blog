@@ -1,6 +1,6 @@
+import request from 'supertest'
 import { Test, TestingModule } from '@nestjs/testing'
 import { INestApplication } from '@nestjs/common'
-import * as request from 'supertest'
 import { AppModule } from '@/app.module'
 import blogList from './data/blog.list.json'
 
@@ -14,6 +14,7 @@ describe('Blog (e2e)', () => {
 
     app = moduleFixture.createNestApplication()
     await app.init()
+    // clear data before testing by delete database or something
   })
 
   it('As a viewer, I wanna get list of dream blog', () => {
